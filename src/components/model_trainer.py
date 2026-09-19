@@ -3,7 +3,7 @@ import sys
 
 from src.logger import logging
 from src.exception import CustomException
-from src.utils import saveobject, evaluate_model
+from src.utils import saveobject, evaluate_model,print_evaluated_results
 
 import pandas as pd
 from sklearn.neighbors import KNeighborsRegressor
@@ -60,6 +60,10 @@ class ModelTrainer:
             saveobject(
                 file_path=self.model_trainer_config.model_trainer_config_obj_path,
                 obj=best_model
+            )
+
+            print_evaluated_results(
+                X_train,y_train,X_test,y_test, best_model
             )
 
             predicted = best_model.predict(X_test)
