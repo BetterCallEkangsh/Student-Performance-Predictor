@@ -6,3 +6,4 @@ catboost
 scikit-learn
 Flask
 dill
+gunicorn
